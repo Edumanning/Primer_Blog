@@ -1,0 +1,266 @@
+:root {
+    --bg: #ffffff;
+    --color: #000000;
+    --zindex-letterhome: 1000;
+    --zindex-navbar: 2000;
+    --h-header: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5rem;
+    scroll-margin-top: var(--h-header);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: rgb(190, 83, 22);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--color);
+}
+
+body.darkmode {
+    --bg: #000000;
+    --color: #ffffff;
+}
+
+
+
+.content__navbar {
+    background-color: transparent;
+    position: fixed;
+    z-index: var(--zindex-navbar) ;
+    width: 100%;
+    left: 0;
+    transition: background-color 0.5s;
+}
+
+.navbar {
+    height: var(--h-header);
+    margin: 0 auto;
+    max-width: 1200px;    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    transition: height 0.5s
+}
+
+.navbar--scroll {
+    --h-header: 80px
+}
+
+.menu {
+    position: fixed;
+    left: -100%;
+    top: var(--h-header);
+    width: 50%;
+    height: calc(100vh - var(--h-header));
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: left 0.5s;
+}
+
+.menu__show {    
+    left: 0;
+}
+
+.iconMenu,
+.iconTheme {
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(190, 83, 22);
+}
+
+
+.logo {
+    display: inline-block;
+    width: 50px;
+}
+
+.home {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    gap: 1rem;
+    background-image: url(../img/imageHero.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.home > h2 {
+    position: relative;
+    font-size: 1.7rem;
+    z-index: var(--zindex-letterhome);
+    line-height: 2rem;
+}
+
+.home > p {
+    position: relative;
+    z-index: var(--zindex-letterhome);    
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.contentBlog {
+    padding: 1rem;
+}
+
+.items {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item__img {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.item__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item__btn {
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: antiquewhite;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.img__parallax {
+    min-height: 100vh;
+    background-image: url(https://source.unsplash.com/random/1920×1080/?pets);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.wave {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.adoptame {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+footer ul {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (min-width: 700px) {
+    .home {
+        min-height: 65vh;
+    }
+
+    .contentBlog {
+        max-width: 1200px;
+        margin: auto;
+    }
+    
+    .item{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 350px;
+    }
+
+    .item:nth-child(even){
+        flex-direction: row-reverse;
+    }
+
+    .item__img {
+        width: 50%;
+        height: 100%;
+    }
+
+    .item__img img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .item__body {
+        width: 50%;
+    }
+
+    .item__btn {
+        width: 30%;
+        padding: 0.7rem;
+    }
+
+    .menu {
+        position: static;
+        width: auto;
+        flex-direction: row;
+        height: auto;
+        background-color: transparent;
+    }
+
+    .iconMenu {
+        display: none;
+    }
+}
